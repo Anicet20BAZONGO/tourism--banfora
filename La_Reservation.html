@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LA RÉSERVATION</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 40px;
+    }
+            .clignote {
+      font-size: 2em;
+      color: red;
+      animation: clignoter 5s infinite;
+    }
+        @keyframes clignoter {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    h2 {
+      text-align: center;
+      color: #222;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    #header {
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 20px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+      background-color: darkorange;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: orangered;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #222;
+      color: white;
+    }
+
+    #logo {
+      width: 550px;
+      height: auto;
+    }
+    
+    img {
+      display: block;
+      margin: 30px auto;
+      width: 800px;
+      border-radius: 15px;
+      border: 5px solid #999;
+    }
+
+  </style>
+</head>
+<body>
+   <div id="header">
+        <h1 class="clignote" >BIENVENU À BANFORA</h1>
+        <img text-align: center; padding: 20px; src="images\Place_de_la_nation.png" alt="cascades de Banfora" id="logo"><br>
+     </div>
+     <h1 style="color: red; text-align: center;"><strong><u>Hotels disponibles</u></strong></h1><br>
+       
+     <ol>
+         <li><img src="images\images (29).jpeg" alt="Hotels"></li>
+         <li><img src="images\images (30).jpeg" alt="Hotels"></li>
+         <li><img src="images\images (31).jpeg" alt="Hotels"></li>
+         <li><img src="images\images (32).jpeg" alt="Hotels"></li>
+         <li><img src="images\téléchargé (25).jpeg" alt="Hotels"></li>
+         <li><img src="images\images (33).jpeg" alt="Hotels"></li>
+         <li><img src="images\téléchargé (26).jpeg" alt="Hotels"></li>
+         <li><img src="images\téléchargé (27).jpeg" alt="Hotels"></li>
+         <li><img src="images\images (34).jpeg" alt="Hotels"></li>
+      
+    </ol>
+      
+    <a href="Tourisme_Banfora.html" class="retour">Page Précédente</a>
+   <h2 class="texte-anime">Formulaire de Réservation</h2>
+
+  <form action="#" method="post">
+    <label for="nom">Nom :</label>
+    <input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required>
+
+    <label for="prenom">Prénom :</label>
+    <input type="text" id="prenom" name="prenom" placeholder="Entrez votre prénom" required>
+
+    <label for="email">Email :</label>
+    <input type="email" id="email" name="email" placeholder="exemple@mail.com" required>
+
+    <label for="age">Âge :</label>
+    <input type="number" id="age" name="age" min="1" required>
+
+    <label for="telephone">Numéro de téléphone :</label>
+    <input type="tel" id="telephone" name="telephone" placeholder="77235877" required>
+
+    <label for="motivation">Quel est votre motivation ?</label>
+    <select id="motivation" name="motivation" required>
+      <option value="">--Choisir une option--</option>
+      <option value="decouverte">Découverte</option>
+      <option value="distraction">Distraction</option>
+    </select>
+
+    <label for="chambres">Nombre de chambre :</label>
+    <input type="number" id="chambres" name="chambres" min="1" required>
+
+    <label for="jours">Nombre de jours :</label>
+    <input type="number" id="jours" name="jours" min="1" required>
+
+    <label for="Nom">Numéro de Hotel :</label>
+    <input type="number" id="num" name="nom" min="1" required><br><br>
+
+
+    <!--input type="submit" value="Soumettre"-->
+   <button onclick="reservation(event)">Réserver votre un hotel</button>
+   </form>
+     <div id="reçu" style="display:none; margin-top:20px;">
+   <div id="Droit_d_hotel"></div>
+   </div>
+    <script>
+      function reservation(event){
+        event.preventDefault();
+     var nm= document.getElementById("nom").value;
+     var prnm = document.getElementById("prenom").value;
+     var eml= document.getElementById("email").value;
+     var ag= document.getElementById("age").value;
+     var tlph = document.getElementById("telephone").value;
+     var motf = document.getElementById("motivation").value;
+     var chm = document.getElementById("chambres").value;
+     var sej= document.getElementById("jours").value;
+     var nub = document.getElementById("num").value;
+     document.getElementById("Droit_d_hotel").innerHTML=
+      "Votre réservation :<br><br>" +
+      "Nom : " + nm + "<br>" +
+      "Prénom : " + prnm + "<br>" +
+      "Email : " + eml + "<br>" +
+      "Âge : " + ag + "<br>" +
+      "Téléphone : " + tlph + "<br>" +
+      "Motivation : " + motf + "<br>" +
+      "Chambres : " + chm + "<br>" +
+      "Nombre de jours : " + sej + "<br>" +
+      "Numéro : " + nub + "<br><br>" +
+      "Félicitations ! 🎉 Une notification vous sera envoyée par mail. Merci et bon séjour 🥰❤️";
+      document.getElementById("reçu").style.display = "block";
+      }
+    </script>
+  <footer>
+    <p style="text-align: center;">&copy; 2025 BAZONGO Anicet & BAYILI Adeline Tous doits réservés.</p>
+  </footer>
+
+</body>
+</html>
